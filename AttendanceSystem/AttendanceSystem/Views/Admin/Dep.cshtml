@@ -1,0 +1,21 @@
+﻿@model AttendanceSystem.Models.StudentViewModel
+
+@using (Ajax.BeginForm("Attended", "Admin", new AjaxOptions
+{
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "inf",
+    HttpMethod = "POST"
+}))
+{
+    @Html.ListBoxFor(a => a.selectedStudent, new SelectList(Model.Students), new { @class = "form-control" })
+
+    <input type="submit" class="btn btn-default" value="Attend This Student"/>
+
+}
+<div id="inf"></div>
+
+
+
+
+
+

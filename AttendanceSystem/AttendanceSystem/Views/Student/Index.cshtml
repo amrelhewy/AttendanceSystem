@@ -1,0 +1,33 @@
+﻿
+@model AttendanceSystem.Models.StudentDetailsViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table" >
+    <tr>
+       <th>Username</th> <th>Student Name</th><th>Department Name</th><th>Number of Late Days</th>
+    </tr>
+    <tr>
+        <td>@Model.userInfo.UserName</td>
+        <td>@Model.studinfo.FullName</td><td>@Model.depInfo.deptName</td><td>@Model.LateTimes</td>
+    </tr>
+
+</table>
+<label>Enter a specific date to search</label>
+<input type="date" id="datesearch" />
+
+<div id="days"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+

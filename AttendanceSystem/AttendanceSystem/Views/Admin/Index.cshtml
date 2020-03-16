@@ -1,0 +1,42 @@
+﻿@model AttendanceSystem.Models.StudentViewModel
+@{
+    ViewBag.Title = "Index";
+}
+<h1>Attendance System</h1>
+<h3>Registering Attendance</h3>
+@using (Ajax.BeginForm("Dep", "Admin", new AjaxOptions
+{
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "studlist",
+    HttpMethod = "POST"
+}))
+{
+    @Html.LabelFor(a => a.depID, "Enter Dep Name", new { @class = "col-md-2 control-label" })
+    @Html.DropDownListFor(a => a.depID, ViewBag.Deps as SelectList, "Select Department", new { @class = "form-control" })
+    <input type="submit" class="btn btn-default" value="Select Department" /><input type="button" class="btn btn-default" value="Attended Students" id="allatended" />
+}
+<h6>****************************************************************************************</h6>
+<div class="container mt-5">
+    <h3>Attendance for specific dates</h3>
+@Html.Label("Choose Student(s) Department")
+@Html.DropDownList("Deps", ViewBag.Deps as SelectList, "Select Department", new { @class = "form-control"  })
+
+@Html.Label("Choose a Date")
+<input type="date" id="dpick" name="dpick" />
+<input type="button" id="checkdates" value="Search" />
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6" id="studlist"></div>
+        <div class="col-sm-6" id="attendance"></div>
+    </div>
+    <div class="row mt-5 text-center">
+        <div class="col-sm-12" id="details"></div>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,49 @@
+﻿@model AttendanceSystem.Models.StudentViewModel
+
+
+@using (Ajax.BeginForm("Departure", "Admin", new AjaxOptions
+{
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "info",
+    HttpMethod = "POST"
+}))
+{
+   @Html.ListBoxFor(a => a.selectedStudent, new SelectList(Model.AttendedStudents), new { @class = "form-control",id="lb" })
+
+    <input type="submit" class="btn btn-default" value="Depart Student" />
+    <a href="" id="cl">Student Details</a>
+}
+
+
+<div id="info"></div>
+<div id="detailss">
+    
+</div>
+<script>
+    var k;
+    $(function () {
+           $('#lb').change(() => {
+
+        k = $('#lb option:selected').val();
+        $('#cl').attr('svalue', k);
+
+    })
+    $('#cl').click((e) => {
+        e.preventDefault();
+        $.ajax({
+            type:"POST",
+            url: '@Url.Action("Details","Admin")',
+            data: { stname: k },
+
+            success: (data) => {
+                $('#detailss').html(data);
+
+
+            }
+
+        })
+    })
+    })
+
+
+</script>

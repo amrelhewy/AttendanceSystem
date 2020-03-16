@@ -1,0 +1,9 @@
+﻿@model AttendanceSystem.Models.StudentDetailsViewModel
+
+<table class="table">
+    <tr><td>Student Name</td><td>Attend Time</td><td>Leave Time</td></tr>
+    @for(int i=0;i<Model.StudentNames.Count;i++)
+    {
+        <tr><td>@Model.StudentNames[i]</td><td>@Model.AttendTimes[i]</td><td>@Model.LeaveTimes[i]</td></tr>
+    }
+</table>

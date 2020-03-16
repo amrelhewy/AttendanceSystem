@@ -1,0 +1,25 @@
+﻿@model AttendanceSystem.Models.Attendance
+<table class="table">
+    <tr>
+ 
+    <th>Attended Time</th>
+    <th>Departure time</th>
+    <th>Late</th>
+    </tr>
+    <tr>
+ 
+           
+        
+        <td>
+         @Html.DisplayTextFor(a=>a.AttendTime)
+        </td>
+        <td>
+            @Html.DisplayTextFor(a => a.LeaveTime)
+        </td>
+        <td>
+            @Html.DisplayTextFor(a => a.lateString)
+        </td>
+    </tr>
+   
+</table>
+
